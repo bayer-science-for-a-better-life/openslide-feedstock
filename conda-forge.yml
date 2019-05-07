@@ -1,0 +1,29 @@
+#
+# See: https://conda-forge.org/docs/maintainer/conda_forge_yml.html
+# See also: conda-smithy
+#
+# Remember to setup BINSTAR_TOKEN in:
+#   anaconda.org (Settings -> Access)
+#   azure
+# Make sure not to leak secrets!
+#
+
+channels:
+  sources:    
+    - conda-forge
+    - defaults
+  targets:
+    - ["sdvillal", "main"]
+
+provider:
+  linux: azure
+  osx: azure
+  win: azure
+
+github:
+  user_or_org: sdvillal
+  branch_name: master
+
+azure:
+  upload_packages: False
+  force: False

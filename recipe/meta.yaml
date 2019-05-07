@@ -1,0 +1,51 @@
+#
+# conda-forge friendly recipes for openslide and openslide-python
+#
+# Linux + Macos notes
+# -------------------
+# - bioconda provides these packages
+#   https://bioconda.github.io/recipes/openslide/README.html
+#   https://bioconda.github.io/recipes/openslide-python/README.html
+# - we probably want to build ourselves anyway
+#
+# Windows notes
+# -------------
+# See: https://openslide.org/download/
+# N.B. There are also development builds for windows
+#      https://buildbot.openslide.org/snapshots/windows/
+# In case we want to build ourselves in windows:
+#     https://github.com/openslide/openslide-winbuild
+# 
+
+{% set version = "20171122" %}  # [win]
+{% set build_number= "0" %}     # [win]
+
+package:
+  name: openslide
+  version: {{ version }}
+
+source:
+  - url: https://github.com/openslide/openslide-winbuild/releases/download/v{{ version }}/openslide-win64-{{ version }}.zip  # [win64]
+    sha256: ede566aca8b5348dff85570f9638c6bad33209f9419f79db7bde7daa37599bff  # [win64]
+
+build:
+  number: {{ build_number }}
+  skip: True  # [not win64]
+  run_exports:
+    # seems to be major version compatibility
+    # https://abi-laboratory.pro/?view=timeline&l=openslide
+    # we would need to build ourselves the windows package to make better sense of this
+    - {{ pin_subpackage('openslide', max_pin='x') }}  # [not win]
+
+# test:
+#   commands:
+
+about:
+  home: https://www.openslide.org
+  license: LGPL 2.1
+  license_file: COPYING.GPLv3  # [unix]
+  summary: OpenSlide is a C library that provides a simple interface to read whole-slide images (also known as virtual slides). 
+
+extra:
+  recipe-maintainers:
+    - sdvillal

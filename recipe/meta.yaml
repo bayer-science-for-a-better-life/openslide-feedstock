@@ -26,7 +26,7 @@ package:
 
 source:
   - url: https://github.com/openslide/openslide-winbuild/releases/download/v{{ version }}/openslide-win64-{{ version }}.zip  # [win64]
-    sha256: ede566aca8b5348dff85570f9638c6bad33209f9419f79db7bde7daa37599bff  # [win64]
+    sha256: 22c6b6e2bb68a438ce0e09792af6ddb4a15d05f91c10d63e34eeab6651ea5489  # [win64]
 
 build:
   number: {{ build_number }}

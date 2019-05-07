@@ -26,5 +26,5 @@ github:
   branch_name: master
 
 azure:
-  upload_packages: False
+  upload_packages: True
   force: False

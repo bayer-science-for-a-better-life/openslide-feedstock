@@ -22,6 +22,7 @@ provider:
 
 github:
   user_or_org: sdvillal
+  repo_name: ""
   branch_name: master
 
 azure:

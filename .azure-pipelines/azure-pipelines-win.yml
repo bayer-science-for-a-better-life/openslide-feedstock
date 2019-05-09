@@ -16,10 +16,12 @@ jobs:
         UPLOAD_PACKAGES: True
   steps:
     # TODO: Fast finish on azure pipelines?
-    - bash: echo $MOLA
 
     - script: |
         ECHO ON
+
+    - bash: echo $MOLA
+      displayName: Display variables
 
 
     - script: |

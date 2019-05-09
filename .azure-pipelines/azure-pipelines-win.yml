@@ -21,6 +21,8 @@ jobs:
         ECHO ON
 
     - bash: echo $MOLA
+      env:
+        MOLA: $(MOLA)
       displayName: Display variables
 
 
